@@ -20,13 +20,13 @@ class OrderBeverageServiceHandler : public OrderBeverageServiceIf {
  public:
   OrderBeverageServiceHandler(
 		  ClientPool<ThriftClient<WeatherServiceClient>> *,
-		  ClientPool<ThriftClient<BeveragePreferenceClient>> *) ;
+		  ClientPool<ThriftClient<BeveragePreferenceServiceClient>> *) ;
   ~OrderBeverageServiceHandler() override=default;
 
   void PlaceOrder(std::string& _return, const int64_t city) override;
  private:
   ClientPool<ThriftClient<WeatherServiceClient>> *_weather_client_pool;
-  ClientPool<ThriftClient<BeveragePreferenceClient>> *_beverage_preference_client_pool;
+  ClientPool<ThriftClient<BeveragePreferenceServiceClient>> *_beverage_preference_client_pool;
 };
 
 // Constructor
