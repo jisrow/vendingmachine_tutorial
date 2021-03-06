@@ -31,13 +31,13 @@ BeveragePreferenceServiceHandler::BeveragePreferenceServiceHandler() {
 
 void BeveragePreferenceServiceHandler::GetBeverage(std::string& _return, const BeverageType::type b) {
      // Your implementation goes here
-     printf("GetBeveragePreference\n");
+     printf("GetBeverage\n");
 
      std::string beverages[3];
      if(b == BeverageType::type::HOT) {
-       beverages = {“cappuccino”, “latte”, “espresso”};
+       beverages = {"cappuccino", "latte", "espresso"};
      } else {
-       beverages = {“lemonade”, “ice tea”, “soda”};
+       beverages = {"lemonade", "ice tea", "soda"};
      }
 
     //return beverage preference based on provide BeverageType
