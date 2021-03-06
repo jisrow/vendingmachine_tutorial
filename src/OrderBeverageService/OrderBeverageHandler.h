@@ -81,7 +81,7 @@ void OrderBeverageServiceHandler::PlaceOrder(std::string& _return, const int64_t
 
     //4. call the remote procedure : GetBeveragePreference
     try {
-      beverage_preference_client->GetBeveragePreference(_return,
+      beverage_preference_client->GetBeverage(_return,
 		     weatherType == WeatherType::type::COLD ? BeverageType::type::HOT : BeverageType::type::COLD); 
     } catch(...) {
       _beverage_preference_client_pool->Push(beverage_preference_client_wrapper);
