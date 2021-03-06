@@ -41,12 +41,20 @@ int main(int argc, char **argv) {
   // 4: get the weather service's port and address
   int weather_service_port = config_json["weather-service"]["port"];
   std::string weather_service_addr = config_json["weather-service"]["addr"];
+
+  // 5: get the beverage preference service's port and address
+  int beverage_preference_service_port = config_json["beverage-preference-service"]["port"];
+  std::string beverage_preference_service_addr = config_json["beverage-preference-service"]["addr"];
  
-  // 5: get the client of weather-service
+  // 6: get the client of weather-service
   ClientPool<ThriftClient<WeatherServiceClient>> weather_client_pool(
       "weather-service", weather_service_addr, weather_service_port, 0, 128, 1000);
+  
+  // 7: get the client of beverage-preference-service
+  ClientPool<ThriftClient<BeveragePreferenceServiceClient>> beverage_preference_client_pool(
+      "beverage-preference-service", beverage_preference_service_addr, beverage_preference_service_port, 0, 128, 1000);
 
-  // 6: configure this server
+  // 8: configure this server
   TThreadedServer server(
       std::make_shared<OrderBeverageServiceProcessor>(
           std::make_shared<OrderBeverageServiceHandler>(
@@ -56,7 +64,7 @@ int main(int argc, char **argv) {
       std::make_shared<TBinaryProtocolFactory>()
   );
   
-  // 7: start the server
+  // 9: start the server
   std::cout << "Starting the order-beverage server ..." << std::endl;
   server.serve();
   return 0;
