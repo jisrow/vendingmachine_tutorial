@@ -32,7 +32,7 @@ class OrderBeverageServiceHandler : public OrderBeverageServiceIf {
 // Constructor
 OrderBeverageServiceHandler::OrderBeverageServiceHandler(
 		ClientPool<ThriftClient<WeatherServiceClient>> *weather_client_pool,
-		ClientPool<ThriftClient<BeveragePrefenceClient>> *beverage_preference_client_pool) {
+		ClientPool<ThriftClient<BeveragePreferenceServiceClient>> *beverage_preference_client_pool) {
 
      // Storing the clientpool
      _weather_client_pool = weather_client_pool;
@@ -77,7 +77,7 @@ void OrderBeverageServiceHandler::PlaceOrder(std::string& _return, const int64_t
       se.message = "Failed to connect to beverage-preference-client";
       throw se;
     }
-    auto beverage_preveference_client = beverage_preference_client_wrapper->GetClient();
+    auto beverage_preference_client = beverage_preference_client_wrapper->GetClient();
 
     //4. call the remote procedure : GetBeveragePreference
     try {
