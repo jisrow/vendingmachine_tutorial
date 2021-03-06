@@ -33,7 +33,7 @@ void BeveragePreferenceServiceHandler::GetBeverage(std::string& _return, const B
      // Your implementation goes here
      printf("GetBeveragePreference\n");
 
-     string beverages[3];
+     std::string beverages[3];
      if(b == BeverageType::type::HOT) {
        beverages = {“cappuccino”, “latte”, “espresso”};
      } else {
