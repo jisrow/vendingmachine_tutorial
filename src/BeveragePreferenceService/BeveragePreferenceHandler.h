@@ -18,13 +18,12 @@ class BeveragePreferenceServiceHandler : public BeveragePreferenceServiceIf {
  public:
   BeveragePreferenceServiceHandler();
   ~BeveragePreferenceServiceHandler() override=default;
-
+  
   void GetBeverage(std::string& _return, const BeverageType::type b) override;
 };
 
 // Constructor
 BeveragePreferenceServiceHandler::BeveragePreferenceServiceHandler() {
-  std::string beverages[2][3] = {{"cappuccino", "latte", "espresso"},{"lemonade", "ice tea", "soda"}};
 }
 
 // Remote Procedure "PlaceOrder"
@@ -33,6 +32,7 @@ void BeveragePreferenceServiceHandler::GetBeverage(std::string& _return, const B
      // Your implementation goes here
      printf("GetBeverage\n");
 
+     std::string beverages[2][3] = {{"cappuccino", "latte", "espresso"},{"lemonade", "ice tea", "soda"}};
      if(b == BeverageType::type::HOT) {
        _return = beverages[0][rand()%3];
      } else {
