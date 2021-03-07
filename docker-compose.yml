@@ -1,19 +1,19 @@
 version: "3"
 services:
   beverage-preference-service:
-    image: jisrow/vending-machine-microservices:latest
+    image: jisrow/vendingmachine_tutorial:latest
     hostname: beverage-preference-service
     restart: always
     entrypoint: BeveragePreferenceService
 
   order-beverage-service:
-    image: jisrow/vending-machine-microservices:latest
+    image: jisrow/vendingmachine_tutorial:latest
     hostname: order-beverage-service
     restart: always
     entrypoint: OrderBeverageService
 
   weather-service:
-    image: jisrow/vending-machine-microservices:latest
+    image: jisrow/vendingmachine_tutorial:latest
     hostname: weather-service
     restart: always
     entrypoint: WeatherService
