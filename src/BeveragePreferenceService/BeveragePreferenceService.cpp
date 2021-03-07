@@ -48,7 +48,7 @@ int main(int argc, char **argv) {
   );
   
   // 5: start the server
-  std::cout << "Starting the beverage preference server ..." << std::endl;
+  std::cout << "Starting the beverage-preference server ..." << std::endl;
   server.serve();
   return 0;
 }
