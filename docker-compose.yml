@@ -1,5 +1,11 @@
 version: "3"
 services:
+  beverage-preference-service:
+    image: probir/vending-machine-microservices:latest
+    hostname: beverage-preference-service
+    restart: always
+    entrypoint: BeveragePreferenceService
+
   order-beverage-service:
     image: probir/vending-machine-microservices:latest
     hostname: order-beverage-service
