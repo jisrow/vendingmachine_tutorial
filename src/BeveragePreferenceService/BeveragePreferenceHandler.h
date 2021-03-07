@@ -24,7 +24,7 @@ class BeveragePreferenceServiceHandler : public BeveragePreferenceServiceIf {
 
 // Constructor
 BeveragePreferenceServiceHandler::BeveragePreferenceServiceHandler() {
-
+  std::string beverages[2][3] = {{"cappuccino", "latte", "espresso"},{"lemonade", "ice tea", "soda"}};
 }
 
 // Remote Procedure "PlaceOrder"
@@ -33,15 +33,11 @@ void BeveragePreferenceServiceHandler::GetBeverage(std::string& _return, const B
      // Your implementation goes here
      printf("GetBeverage\n");
 
-     std::string beverages[3];
      if(b == BeverageType::type::HOT) {
-       beverages = {"cappuccino", "latte", "espresso"};
+       _return = beverages[0][rand()%3];
      } else {
-       beverages = {"lemonade", "ice tea", "soda"};
+       _return = beverages[1][rand()%3];
      }
-
-    //return beverage preference based on provide BeverageType
-    _return = beverages[rand()%3];
 }
 
 } // namespace vending_machine
